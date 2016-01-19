@@ -1,16 +1,16 @@
 /*
 Error: File to import not found or unreadable: bootstrap.
-        on line 16 of /home/ubuntu/workspace/value-health/app/assets/stylesheets/application.scss
+        on line 1 of /home/ubuntu/workspace/value-health/app/assets/stylesheets/custom.css.scss
 
-11:  * file per style scope.
-12:  *
-13: 
-14:  *\/
-15: 
-16: @import "bootstrap";
+1: @import "bootstrap";
+2: 
+3: /* === Universal === *\/
+4: 
+5: body {
+6:   padding-top: 60px;
 
 Backtrace:
-/home/ubuntu/workspace/value-health/app/assets/stylesheets/application.scss:16
+/home/ubuntu/workspace/value-health/app/assets/stylesheets/custom.css.scss:1
 /usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.21/lib/sass/tree/import_node.rb:67:in `rescue in import'
 /usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.21/lib/sass/tree/import_node.rb:45:in `import'
 /usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.21/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -53,4 +53,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: bootstrap.\A         on line 16 of /home/ubuntu/workspace/value-health/app/assets/stylesheets/application.scss\A \A 11:  * file per style scope.\A 12:  *\A 13: \A 14:  */\A 15: \A 16: @import \"bootstrap\";"; }
+  content: "Error: File to import not found or unreadable: bootstrap.\A         on line 1 of /home/ubuntu/workspace/value-health/app/assets/stylesheets/custom.css.scss\A \A 1: @import \"bootstrap\";\A 2: \A 3: /* === Universal === */\A 4: \A 5: body {\A 6:   padding-top: 60px;"; }
