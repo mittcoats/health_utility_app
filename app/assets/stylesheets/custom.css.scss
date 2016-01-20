@@ -1,9 +1,15 @@
 @import "bootstrap";
 
+/* === mixins and variables === */
+
+$gray-md-light: #eaeaea;
+$gray-dark: #777;
+$gray-light: #222;
+
 /* === Universal === */
 
 body {
-  padding-top: 60px;
+  padding-top: 100px;
 }
 
 section {
@@ -16,10 +22,9 @@ textarea {
 
 .center {
   text-align: center;
-}
-
-.center h1 {
+  h1 {
   margin-bottom: 10px;
+  }
 }
 
 
@@ -42,7 +47,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
+  color: $gray-light;
 }
 
 p {
@@ -61,11 +66,10 @@ p {
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
-}
-
-#logo:hover {
-  color: #fff;
+  &:hover {
+  color: black;
   text-decoration: none;
+  }
 }
 
 
@@ -74,28 +78,23 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
-}
-
-footer a {
-  color: #555;
-}
-
-footer a:hover {
-  color: #222;
-}
-
-footer small {
-  float: left;
-}
-
-footer ul {
-  float: right;
-  list-style: none;
-}
-
-footer ul li {
-  float: left;
-  margin-left: 15px;
+  border-top: 1px solid $gray-md-light;
+  color: $gray-light;
+  a {
+    color: $gray;
+    &:hover {
+      color: $gray-dark;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
 }
