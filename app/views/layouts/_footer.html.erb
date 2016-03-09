@@ -1,13 +1,25 @@
-<footer class="footer">
-  <small>
-    The Value Health App
-    by <a href="http://www.github.com/mittcoats">Mitt Coats</a>
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to "About",   about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
-      <li><a href="http://medicalethics.med.upenn.edu/">News</a></li>
-    </ul>
-  </nav>
+<footer>
+  <div id="footer" class="navbar navbar-fixed-bottom navbar-light bg-faded">
+    <div class="row">
+      <small class="col-md-4">
+        The Value Health App
+        by <a href="http://www.github.com/mittcoats">Mitt Coats</a>
+      </small>
+  
+      <div class="img-fluid penn_ethics col-md-4">
+        <%= link_to image_tag("penn-medical-ethics-logo.png",
+                        alt: "Penn Medical Ethics"),
+                        'http://medicalethics.med.upenn.edu/',
+                        class: "penn_ethics" %>
+      </div>
+      
+      <div class="col-md-4">
+        <ul class="nav navbar-nav pull-right">
+          <li class="nav-item"><%= link_to "About",   about_path %></li>
+          <li class="nav-item"><%= link_to "Contact", contact_path %></li>
+          <li class="nav-item"><a href="http://medicalethics.med.upenn.edu/">News</a></li>
+        </ul>  
+      </div>
+    </div>
+  </div>
 </footer>

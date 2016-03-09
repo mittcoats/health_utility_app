@@ -1,0 +1,18 @@
+<fieldset>
+  <h2>Section</h2>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title %><br>
+  <%= f.label :description, "Description" %>
+  <%= f.text_area :description %><br>
+  <%= f.label :instructions, "Instructions" %>
+  <%= f.text_area :instructions %><br>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+  
+  <%= f.fields_for :questions do |builder| %>
+    <%= render 'question_fields', f: builder %>
+  <% end %>
+  
+  <%= link_to_add_fields "Add Question", f, :questions %>
+  
+</fieldset>

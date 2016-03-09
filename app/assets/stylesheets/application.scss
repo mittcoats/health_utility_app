@@ -10,6 +10,24 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_self
- *= require_tree .
  */
+ 
+@import "bootstrap";
+
+#content {
+  margin-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  .penn_ethics {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+

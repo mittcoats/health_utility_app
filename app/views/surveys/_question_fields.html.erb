@@ -1,0 +1,13 @@
+<fieldset>
+  <h3>Question</h3>
+  <%= f.label :content, "Content" %>
+  <%= f.text_field :content %><br>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+  
+  <%= f.fields_for :options do |builder| %>
+    <%= render 'option_fields', f: builder %>
+  <% end %>
+
+  <%= link_to_add_fields "Add Option", f, :options %>
+</fieldset>

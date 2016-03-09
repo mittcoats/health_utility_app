@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'form' %>
+
+<h1><%= @survey.title %> </h1>
+
+<%= link_to 'Edit', edit_survey_path(@survey) %> |
+<%= link_to 'Back', surveys_path %>
