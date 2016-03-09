@@ -1,7 +1,14 @@
 <fieldset>
   <h4>Option</h4>
-  <%= f.label :content, "Content" %>
-  <%= f.text_field :content %><br>
-  <%= f.hidden_field :_destroy %>
-  <%= link_to "remove", '#', class: "remove_fields" %>
+  <div class="form-group row">
+    <div class="col-sm-2 form-control-label">
+      <%= f.label :content, "Content" %>  
+    </div>
+    <div class="col-sm-10">
+      <%= f.text_field :content, class: 'form-control' %><br>
+    </div>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to "Remove", '#', class: "remove_fields" %>
+  </div>
+  
 </fieldset>

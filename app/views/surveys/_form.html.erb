@@ -20,12 +20,12 @@
   
   <div class="form-group">
     <%= f.label :description, "Description" %>
-    <%= f.text_field :description, class: 'form-control' %>
+    <%= f.text_area :description, class: 'form-control' %>
   </div>
   
   <div class="form-group">
     <%= f.label :instructions, "Instructions" %>
-    <%= f.text_field :instructions, class: 'form-control' %>
+    <%= f.text_area :instructions, class: 'form-control' %>
   </div>
 
   <%= f.fields_for :sections do |builder| %>
