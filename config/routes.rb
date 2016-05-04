@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :surveys
 
   root             'static_pages#home'
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   get 'signin'  => 'users#new'
+  get 'gamble'  => 'static_pages#gamble'
   
 
   

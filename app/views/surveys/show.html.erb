@@ -1,8 +1,47 @@
-<p id="notice"><%= notice %></p>
+<%= form_for(@survey) do |f| %>
+  <% if @survey.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @survey.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="container survey_container">
+    <div class="survey_header">
+      <h1><%= @survey.title %> </h1>
+      <p><%= @survey.description %></p>
+      <p><%= @survey.instructions %></p>
+    </div>
+    
+    <ol class="sections">
+      <% @survey.sections.each do |section| %>
+        <li>
+          <h3><%= section.title %></h3>
+          <p><%= section.description %></p>
+          <p><%= section.instructions %></p>
+          <ol class="questions">
+            <% section.questions.each do |question| %>
+              <li><%= question.content %></li>
+            <% end %>  
+          
+          </ol>
+        </li>
+      <% end %>    
+    </ol>
+    
+  
+  </div>
+  
+    
+  </div>
+  
+  
+  <%= link_to 'Edit', edit_survey_path(@survey) %> |
+  <%= link_to 'Back', surveys_path %>
 
-<h1><%= @survey.title %> </h1>
-
-<%= link_to 'Edit', edit_survey_path(@survey) %> |
-<%= link_to 'Back', surveys_path %>
+<% end %>

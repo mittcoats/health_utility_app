@@ -1,0 +1,105 @@
+<div id="gambleModule" class="container">
+  <div id="gambleActive">
+    <div class="card-group">
+      <div id="gambleContinue"class="card">
+        <div class="card-block">
+          <h4 class="card-title">Continue in my current health state</h4>
+        </div>
+      </div>
+      <div id="gambleTakeRisk" class="card">
+        <div class="card-block">
+          <h4 class="card-title">Undergo treatment with a</h4>
+          <h5 class="card-text">
+            <span id="successPercent"></span>%
+            chance of successful outcome.
+          </h5>
+          <h5 class="card-text">
+            <span id="poorPercent"></span>%
+            chance of poor outcome.
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="gambleComplete">
+    <h1>All Done. Thanks!</h1>
+    <h2>Iterations:
+      <span id="gambleIterations"></span>
+    </h2>
+    <h2>Last-card percentages: <br>
+      Success: <span id="gambleSuccessPercent"></span><br>
+      Poor: <span id="gamblePoorPercent"></span><br>
+    </h2>
+    <h2>Card-before-last percentages: <br>
+      Interation #: <span id="gambleIterationPrev"></span><br>  
+      Success: <span id="gambleSuccessPercentPrev"></span><br>
+      Poor: <span id="gamblePoorPercentPrev"></span><br>
+    </h2>
+  </div>
+</div>
+
+
+<script>
+  $("#gambleComplete" ).hide();
+  
+  var successPercent = [100, 0, 90, 10, 80, 20, 70, 30, 60, 40, 50];
+  var poorPercent = [0, 100, 10, 90, 20, 80, 30, 70, 40, 60, 50];
+  var gambleIndex = 0
+  
+  function setSuccessPercent(successPercent){
+    $("#successPercent").html(successPercent);  
+  }
+  function setPoorPercent(poorPercent){
+    $("#poorPercent").html(poorPercent);  
+  }
+  function isGambleOver(gambleIndex, userClick){
+    return (userClick === "gambleContinue" && gambleIndex%2 == 0) || (userClick === "gambleTakeRisk" && gambleIndex%2 != 0)
+  }
+  function computeGambleScore(successPercent, poorPercent, successPercentPrev, poorPercentPrev){
+    $("#gambleSuccessPercent").html(successPercent);
+    $("#gamblePoorPercent").html(poorPercent);
+    $("#gambleSuccessPercentPrev").html(successPercentPrev);
+    $("#gamblePoorPercentPrev").html(poorPercentPrev);
+  }
+  
+  $("document").ready(function(){
+    
+    setSuccessPercent(successPercent[gambleIndex]);
+    setPoorPercent(poorPercent[gambleIndex]);
+    
+    $( "#gambleContinue" ).click(function(arg1) {
+      console.log( arg1 );
+      if (isGambleOver(gambleIndex, "gambleContinue")){
+        console.log("It's over");
+        $("#gambleActive").hide();
+        $("#gambleComplete").show();
+        computeGambleScore(successPercent[gambleIndex], poorPercent[gambleIndex], successPercent[gambleIndex-1], poorPercent[gambleIndex-1]);
+        $("#gambleIterations").html(gambleIndex);
+        $("#gambleIterationPrev").html(gambleIndex-1);
+      }
+      
+      gambleIndex ++;
+      
+      setSuccessPercent(successPercent[gambleIndex]);
+      setPoorPercent(poorPercent[gambleIndex]);
+    });
+    
+    $( "#gambleTakeRisk" ).click(function(arg1) {
+      console.log( arg1 );
+      if (isGambleOver(gambleIndex, "gambleTakeRisk")){
+        console.log("it's over");
+        $("#gambleActive" ).hide();
+        $("#gambleComplete" ).show();
+        computeGambleScore(successPercent[gambleIndex], poorPercent[gambleIndex], successPercent[gambleIndex-1], poorPercent[gambleIndex-1]);
+        $("#gambleIterations").html(gambleIndex);
+        $("#gambleIterationPrev").html(gambleIndex-1);
+      }
+      
+      gambleIndex ++;
+      
+      setSuccessPercent(successPercent[gambleIndex]);
+      setPoorPercent(poorPercent[gambleIndex]);
+    });
+  })
+</script>
