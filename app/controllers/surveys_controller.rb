@@ -73,8 +73,10 @@ class SurveysController < ApplicationController
     def survey_params
       params.require(:survey).permit(:title, :description, :instructions, 
                                     sections_attributes: [ :id, :title, :description, :instructions, :_destroy,
+                                    gambles_attributes: [:id, :title, :description, :instructions, :interval, :good_outcome, :bad_outcome, :_destroy],
                                     questions_attributes: [ :id, :content, :_destroy, 
-                                    options_attributes: [ :id, :content, :_destroy ] ] ])
+                                    options_attributes: [ :id, :content, :_destroy ] ] ],
+                                    survey_instances_attributes: [ :id, :answer_id, :gamble_result_id, :patient_id ] )
     end                                  
                                       
 end

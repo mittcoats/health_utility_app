@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Gamble Results</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Final good outcome percent</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gamble_results.each do |gamble_result| %>
+      <tr>
+        <td><%= gamble_result.final_good_outcome_percent %></td>
+        <td><%= link_to 'Show', gamble_result %></td>
+        <td><%= link_to 'Edit', edit_gamble_result_path(gamble_result) %></td>
+        <td><%= link_to 'Destroy', gamble_result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gamble result', new_gamble_result_path %>

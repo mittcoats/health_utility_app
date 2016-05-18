@@ -4,9 +4,9 @@
       <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
 
       <ul>
-      <% @survey.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @survey.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -24,12 +24,16 @@
           <h3><%= section.title %></h3>
           <p><%= section.description %></p>
           <p><%= section.instructions %></p>
+          <% section.gambles.each do |gamble| %>
+            <%= render 'gambles/run', gamble: gamble %>
+          <% end %>
+          
           <ol class="questions">
             <% section.questions.each do |question| %>
               <li><%= question.content %></li>
             <% end %>  
-          
           </ol>
+          
         </li>
       <% end %>    
     </ol>
@@ -37,11 +41,6 @@
   
   </div>
   
-    
-  </div>
-  
-  
-  <%= link_to 'Edit', edit_survey_path(@survey) %> |
-  <%= link_to 'Back', surveys_path %>
+  <%= link_to 'Back', surveys_path %>  
 
 <% end %>

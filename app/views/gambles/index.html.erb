@@ -1,1 +1,37 @@
-<h1>Hi</h1>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Gambles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Instructions</th>
+      <th>Interval</th>
+      <th>Good outcome</th>
+      <th>Bad outcome</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gambles.each do |gamble| %>
+      <tr>
+        <td><%= gamble.title %></td>
+        <td><%= gamble.description %></td>
+        <td><%= gamble.instructions %></td>
+        <td><%= gamble.interval %></td>
+        <td><%= gamble.good_outcome %></td>
+        <td><%= gamble.bad_outcome %></td>
+        <td><%= link_to 'Show', gamble %></td>
+        <td><%= link_to 'Edit', edit_gamble_path(gamble) %></td>
+        <td><%= link_to 'Destroy', gamble, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gamble', new_gamble_path %>

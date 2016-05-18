@@ -1,0 +1,2 @@
+module GambleResultsHelper
+end

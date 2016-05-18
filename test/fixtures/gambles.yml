@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  instructions: MyText
+  interval: 
+  good_outcome: MyString
+  bad_outcome: MyString
+
+two:
+  title: MyString
+  description: MyText
+  instructions: MyText
+  interval: 
+  good_outcome: MyString
+  bad_outcome: MyString

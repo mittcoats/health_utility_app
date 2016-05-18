@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @gamble.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @gamble.description %>
+</p>
+
+<p>
+  <strong>Instructions:</strong>
+  <%= @gamble.instructions %>
+</p>
+
+<p>
+  <strong>Interval:</strong>
+  <%= @gamble.interval %>
+</p>
+
+<p>
+  <strong>Good outcome:</strong>
+  <%= @gamble.good_outcome %>
+</p>
+
+<p>
+  <strong>Bad outcome:</strong>
+  <%= @gamble.bad_outcome %>
+</p>
+
+<%= link_to 'Edit', edit_gamble_path(@gamble) %> |
+<%= link_to 'Back', gambles_path %>

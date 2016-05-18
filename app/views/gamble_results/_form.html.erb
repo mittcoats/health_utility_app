@@ -1,0 +1,21 @@
+<%= form_for(@gamble_result) do |f| %>
+  <% if @gamble_result.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gamble_result.errors.count, "error") %> prohibited this gamble_result from being saved:</h2>
+
+      <ul>
+      <% @gamble_result.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :final_good_outcome_percent %><br>
+    <%= f.number_field :final_good_outcome_percent %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

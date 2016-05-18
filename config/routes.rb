@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
+  
+  resources :gamble_results
+  
+  resources :gambles do
+    member do
+      get 'run'
+      
+    end
+  end
+  
+  
   resources :surveys
 
   root             'static_pages#home'
@@ -8,6 +19,7 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
   get 'signin'  => 'users#new'
   get 'gamble'  => 'static_pages#gamble'
+  get 'vas'     => 'static_pages#vas'
   
 
   

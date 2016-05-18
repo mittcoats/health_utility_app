@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309172608) do
+ActiveRecord::Schema.define(version: 20160511224344) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "option_id"
@@ -22,6 +22,27 @@ ActiveRecord::Schema.define(version: 20160309172608) do
 
   add_index "answers", ["option_id"], name: "index_answers_on_option_id"
   add_index "answers", ["patient_id_id"], name: "index_answers_on_patient_id_id"
+
+  create_table "gamble_results", force: :cascade do |t|
+    t.integer  "final_good_outcome_percent"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "gamble_id"
+  end
+
+  create_table "gambles", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "instructions"
+    t.integer  "interval"
+    t.text     "good_outcome"
+    t.text     "bad_outcome"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "section_id"
+  end
+
+  add_index "gambles", ["section_id"], name: "index_gambles_on_section_id"
 
   create_table "options", force: :cascade do |t|
     t.text     "content"
@@ -51,6 +72,18 @@ ActiveRecord::Schema.define(version: 20160309172608) do
   end
 
   add_index "sections", ["survey_id"], name: "index_sections_on_survey_id"
+
+  create_table "survey_instances", force: :cascade do |t|
+    t.integer  "answer_id"
+    t.integer  "gamble_result_id"
+    t.integer  "patient_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "survey_instances", ["answer_id"], name: "index_survey_instances_on_answer_id"
+  add_index "survey_instances", ["gamble_result_id"], name: "index_survey_instances_on_gamble_result_id"
+  add_index "survey_instances", ["patient_id"], name: "index_survey_instances_on_patient_id"
 
   create_table "surveys", force: :cascade do |t|
     t.string   "title"
