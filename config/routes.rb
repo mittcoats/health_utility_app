@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   
+  resources :survey_instances
   resources :gamble_results
   
   resources :gambles do
@@ -9,7 +10,6 @@ Rails.application.routes.draw do
       
     end
   end
-  
   
   resources :surveys
 

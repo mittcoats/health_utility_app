@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.2.3"
+
 gem 'rails',                '4.2.5'
 gem 'bootstrap',            '~> 4.0.0.alpha3'
 gem 'sass-rails',           '~> 5.0'
@@ -11,6 +13,8 @@ gem 'jbuilder',             '~> 2.0'
 gem 'sdoc',                 '~> 0.4.0', group: :doc
 gem 'devise',               '~> 3.5', '>= 3.5.6'
 gem 'awesome_print'
+gem 'bootstrap-slider-rails', '~> 6.0', '>= 6.0.17'
+
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
   gem 'byebug',      '3.4.0'

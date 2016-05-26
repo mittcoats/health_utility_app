@@ -71,9 +71,9 @@
     var params = {
       final_good_outcome_percent: successPercent,
       gamble_id: <%= gamble.id %>,
-      gamble_result: successPercent
+      survey_instance_id: <%= @survey_instance.id %>
     }
-    
+    console.log('saving with params', params)
     $.post("/gamble_results.json", params, function(data){
         console.log('successfully saved', data);
       })

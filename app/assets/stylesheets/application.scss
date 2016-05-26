@@ -13,6 +13,7 @@
  */
  
 @import "bootstrap";
+@import "bootstrap-slider";
 
 .jumbotron {
   h1 {
@@ -45,4 +46,26 @@
     }
   }
 }
+
+// ======= GAMBLE =======
+
+.card {
+  background: lightgrey;
+  &:hover {
+    background: lightblue;
+  }
+}
+
+// ======= SLIDER ======= 
+
+#ex1Slider .slider-selection {
+	background: #BABABA;
+}
+
+.slider.slider-horizontal {
+  display: block;
+  margin: auto;
+  width: 60%;
+}
+
 

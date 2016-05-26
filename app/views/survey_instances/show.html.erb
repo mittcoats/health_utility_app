@@ -13,9 +13,7 @@
   
   <div class="container survey_container">
     <br>
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="Patient Name" aria-describedby="basic-addon1">
-    </div>
+    <h2> <%= @survey_instance.patient_id %></h2>
     <hr>
     
     <div class="survey_header">
@@ -25,7 +23,7 @@
     </div>
     
     <ol class="sections">
-      <% @survey.sections.each do |section| %>
+      <% section = @survey.sections[@section_id] %>
         <li>
           <h3>
             <span>Section Title: </span>
@@ -34,12 +32,13 @@
           <p><%= section.description %></p>
           <p><%= section.instructions %></p>
           <% section.gambles.each do |gamble| %>
+          <% if !@survey_instance.took_gamble(gamble.id) %>
             <%= render 'gambles/run_gamble', gamble: gamble %>
             <br>
             <br>
             <h4>On a scale of 1-10, how much pain to you feel?</h4>
             <br>
-            <%= render 'vas' %>
+          <% end %>
           <% end %>
           
           <ol class="questions">
@@ -49,14 +48,17 @@
           </ol>
           
         </li>
-      <% end %>    
     </ol>
     
   
   </div>
   <br>
   <br>
-  
-  <%= link_to 'Back', surveys_path %>  
+  <% if @survey.sections[@section_id - 1] && @section_id != 0 %> 
+    <%= link_to 'Back', survey_instance_path(@survey_instance, section: (@section_id - 1))%>
+  <% end %> 
+  <% if (@survey.sections[@section_id + 1]) %>
+    <%= link_to 'Next', survey_instance_path(@survey_instance, section: (@section_id + 1))%> 
+  <% end %>
 
 <% end %>

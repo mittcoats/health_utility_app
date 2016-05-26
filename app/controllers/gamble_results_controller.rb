@@ -30,7 +30,7 @@ class GambleResultsController < ApplicationController
     @gamble_result = GambleResult.new
     @gamble_result.final_good_outcome_percent = params['final_good_outcome_percent']
     @gamble_result.gamble_id = params['gamble_id']
-    
+    @gamble_result.survey_instance_id = params['survey_instance_id'].to_i
     # raise @gamble_result.to_s
     
     respond_to do |format|
